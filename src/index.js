@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter , Route } from 'react-router-dom';
+import DataForm from './Components/DataForm'
+import TableView from './Components/TableView'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Route exact path="/" component={DataForm}></Route>
+    <Route path="/table" component={TableView}></Route>
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 
