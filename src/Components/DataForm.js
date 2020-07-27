@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
-import {Form,Button,Container,Row,Col} from 'react-bootstrap'
+import {Form,Button,Container} from 'react-bootstrap'
 import TableView from './TableView'
+
 class DataForm extends Component{
     constructor()
     {
@@ -30,6 +31,9 @@ onSubmit=(e)=>
   {
       //console.log(res.)
       console.log('data is inserted');
+      this.setState({
+          isInserted:true
+      })
       this.props.history.push('/table')
 
   }
@@ -60,9 +64,9 @@ onSubmit=(e)=>
      <Button variant="primary" type="submit">Submit</Button>
      </Form>
 
-
+    
      </Container>
-
+       
     </div>
         );
     }

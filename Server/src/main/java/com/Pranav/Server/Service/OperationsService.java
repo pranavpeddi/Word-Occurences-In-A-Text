@@ -1,5 +1,7 @@
 package com.Pranav.Server.Service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,9 +11,18 @@ import java.util.Map.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.dataformat.csv.*;
+
 import com.Pranav.Server.Model.Data;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+
+
+
 
 @Service
 public class OperationsService {
@@ -51,4 +62,17 @@ public class OperationsService {
 	    return dataList;
 	  
 	}
-}
+	
+	
+	public List<Object> csvToJson() throws IOException
+	{
+ File f1=new File("uploads/util.csv");
+	CsvSchema bootstrap=CsvSchema.emptySchema().withHeader();
+	CsvMapper csvMapper=new CsvMapper();
+    List<Object> readAll=csvMapper.readerFor(Map.class).with(bootstrap).readValues(f1).readAll();
+   return readAll;	
+	}
+	
+	}
+
+

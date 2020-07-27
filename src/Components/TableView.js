@@ -26,7 +26,7 @@ class TableView extends React.Component
     render()
     {
      
-        
+   
         return(
 <Container fluid>
     <Table variant="light" striped bordered hover  size="sm">
@@ -48,9 +48,10 @@ class TableView extends React.Component
     </Table>
 </Container>
         );
- 
+                }
+                
 }
-}
+
 
 
 export default TableView
